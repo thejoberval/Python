@@ -23,4 +23,4 @@ t = []
 for a in range(num):
   t.append(i)
   print(*t, sep=' ')
-  i = i + 1
+  i+=1
