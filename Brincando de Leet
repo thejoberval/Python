@@ -1,0 +1,107 @@
+'''
+Descrição
+Leet é uma maneira de escrever palavras na qual algumas letras, sílabas ou palavras são substituídas por números ou símbolos. Isso é muito usado no contexto da informática para confundir leitores "não iniciados” ou escrever de forma resumida (por exemplo, na escrita de tweets).
+
+
+Dentro desse contexto, você vai escrever um programa que que transforma palavras na grafia comum em palavras na escrita Leet de forma invertida.
+
+
+Ao final, o programa deve informar a quantidade de substituições realizadas.
+
+
+
+Use a seguinte codificação:
+
+
+a, A: @
+
+e, E: 3
+
+i, I: 1
+
+o, O: 0
+
+t, T: 7
+
+s, S: 5
+
+
+Não haverão palavras acentuadas.
+
+
+Se o usuário informar uma string vazia, o programa emitirá uma mensagem de erro e a quantidade 0 (zero).
+
+
+Se o usuário informar uma string que contém pelo menos um número, o programa escreverá uma mensagem de erro e a quantidade 0 (zero).
+
+
+O código deve fazer uso de funções sempre que necessário, observando os princípios da modularização e separação de objetivos.
+
+Formato de entrada
+
+Uma string
+
+Formato de saída
+
+Uma string e um inteiro
+'''
+#Código
+string = list(input())
+lista = []
+sub = []
+
+n = -1
+for i in range(len(string)):
+    lista.append(string[n])
+    n -= 1
+
+for letra in lista:
+    if letra == "A" or letra == "a":
+        posicao = lista.index(letra)
+        lista.remove(letra)
+        lista.insert(posicao, "@")
+        sub.append(1)
+
+    if letra == "E" or letra == "e":
+        posicao = lista.index(letra)
+        lista.remove(letra)
+        lista.insert(posicao, "3")
+        sub.append(1)
+
+    if letra == "I" or letra == "i":
+        posicao = lista.index(letra)
+        lista.remove(letra)
+        lista.insert(posicao, "1")
+        sub.append(1)
+
+    if letra == "O" or letra == "o":
+        posicao = lista.index(letra)
+        lista.remove(letra)
+        lista.insert(posicao, "0")
+        sub.append(1)
+
+    if letra == "T" or letra == "t":
+        posicao = lista.index(letra)
+        lista.remove(letra)
+        lista.insert(posicao, "7")
+        sub.append(1)
+
+    if letra == "S" or letra == "s":
+        posicao = lista.index(letra)
+        lista.remove(letra)
+        lista.insert(posicao, "5")
+        sub.append(1)
+
+if len(string) == 0:
+        print("vazio")
+        print(0)
+else:
+    for caractere in string:
+        if caractere.isnumeric() == True:
+            print("numeros")
+            print(0)
+            break
+    else:
+        str = "".join(lista)
+        print(str)
+        print(len(sub))
